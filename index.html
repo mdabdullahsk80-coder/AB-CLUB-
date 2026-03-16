@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinProfit - অনলাইন গেমিং প্ল্যাটফর্ম</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0b141b; color: #fff; }
+        header { background: #1a2730; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #28a745; }
+        .logo { font-size: 24px; font-weight: bold; color: #28a745; }
+        nav button { background: #28a745; border: none; padding: 8px 15px; color: #fff; border-radius: 5px; cursor: pointer; }
+
+        /* Main Sections */
+        .container { padding: 20px; }
+        .balance-box { background: #1a2730; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #333; }
+        .balance-box h2 { color: #28a745; font-size: 32px; }
+
+        /* Game Grid */
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .game-card { background: #22303c; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; cursor: pointer; border-bottom: 3px solid transparent; }
+        .game-card:hover { border-bottom: 3px solid #28a745; transform: translateY(-5px); }
+        .game-card i { font-size: 40px; margin-bottom: 10px; display: block; }
+
+        /* Forms & Tabs */
+        .action-buttons { display: flex; gap: 10px; margin-top: 20px; }
+        .btn { flex: 1; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-deposit { background: #28a745; color: white; }
+        .btn-withdraw { background: #dc3545; color: white; }
+
+        /* Hidden Sections (Simulating Pages) */
+        .page { display: none; margin-top: 20px; background: #1a2730; padding: 20px; border-radius: 10px; }
+        .active { display: block; }
+        
+        input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #333; background: #0b141b; color: white; }
+        footer { position: fixed; bottom: 0; width: 100%; background: #1a2730; display: flex; justify-content: space-around; padding: 10px; border-top: 1px solid #333; }
+        footer span { font-size: 12px; cursor: pointer; text-align: center; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">WinProfit</div>
+    <nav>
+        <button onclick="showPage('login-page')">লগইন</button>
+    </nav>
+</header>
+
+<div class="container">
+    <div id="home-page" class="page active">
+        <div class="balance-box">
+            <p>বর্তমান ব্যালেন্স</p>
+            <h2>৳ ৫০০.০০</h2>
+            <div class="action-buttons">
+                <button class="btn btn-deposit" onclick="showPage('deposit-page')">ডিপোজিট</button>
+                <button class="btn btn-withdraw" onclick="showPage('withdraw-page')">উত্তোলন</button>
+            </div>
+        </div>
+
+        <h3>জনপ্রিয় গেমসমূহ</h3>
+        <div class="game-grid">
+            <div class="game-card">🎰<br>স্লট গেম</div>
+            <div class="game-card">🎲<br>লুডু বেট</div>
+            <div class="game-card">🏏<br>ক্রিকেট লাইভ</div>
+            <div class="game-card">⚽<br>ফুটবল ম্যাচ</div>
+        </div>
+    </div>
+
+    <div id="deposit-page" class="page">
+        <h3>টাকা জমা দিন (Deposit)</h3>
+        <select input style="width: 100%; padding: 10px; margin: 10px 0;">
+            <option>বিকাশ</option>
+            <option>নগদ</option>
+            <option>রকেট</option>
+        </select>
+        <input type="number" placeholder="পরিমাণ লিখুন">
+        <input type="text" placeholder="ট্রানজেকশন আইডি (TrxID)">
+        <button class="btn btn-deposit">ডিপোজিট নিশ্চিত করুন</button>
+    </div>
+
+    <div id="withdraw-page" class="page">
+        <h3>টাকা উত্তোলন (Withdraw)</h3>
+        <input type="number" placeholder="পরিমাণ">
+        <input type="text" placeholder="আপনার বিকাশ/নগদ নম্বর">
+        <button class="btn btn-withdraw">উত্তোলন রিকোয়েস্ট পাঠান</button>
+    </div>
+
+    <div id="login-page" class="page">
+        <h3>লগইন করুন</h3>
+        <input type="text" placeholder="ইউজারনেম বা মোবাইল">
+        <input type="password" placeholder="পাসওয়ার্ড">
+        <button class="btn btn-deposit" style="width: 100%;">লগইন</button>
+    </div>
+</div>
+
+<footer>
+    <span onclick="showPage('home-page')">🏠<br>হোম</span>
+    <span onclick="showPage('home-page')">🎮<br>গেমস</span>
+    <span onclick="showPage('withdraw-page')">💰<br>উত্তোলন</span>
+    <span onclick="showPage('support-page')">🎧<br>সহায়তা</span>
+</footer>
+
+<div id="support-page" class="page" style="text-align: center;">
+    <h3>গ্রাহক সেবা (24/7)</h3>
+    <p>আমাদের সাথে যোগাযোগ করুন:</p>
+    <button class="btn btn-deposit" style="margin-top:10px;">WhatsApp চ্যাট</button>
+    <button class="btn btn-withdraw" style="margin-top:10px;">Telegram গ্রুপ</button>
+</div>
+
+<script>
+    function showPage(pageId) {
+        // সব পেজ হাইড করা
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        
+        // নির্দিষ্ট পেজ শো করা
+        document.getElementById(pageId).classList.add('active');
+    }
+</script>
+
+</body>
+  </html>
